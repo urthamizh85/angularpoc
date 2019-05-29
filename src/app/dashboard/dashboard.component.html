@@ -1,5 +1,8 @@
 <mat-toolbar class="login-toolbar" color="primary">
-  <span>Hi {{user}}</span>  
+  <a mat-list-item>
+      <mat-icon class="icon">dashboard</mat-icon>
+      <span class="label">Welcome to {{user}} Dashboard</span>
+    </a> 
   <span class="fill-space"></span>
   <a  mat-list-item type="button" (click)="logOut()">
       <mat-icon class="icon">input</mat-icon>
