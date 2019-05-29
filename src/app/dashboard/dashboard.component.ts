@@ -1,6 +1,8 @@
 import { 
     Component,Input,Output,Pipe,PipeTransform,OnInit
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import {Authentication} from '../services/authentication'
 @Component({
   selector: 'dashboard',
   templateUrl: "./dashboard.component.html",
@@ -9,9 +11,9 @@ import {
 export class DashboardComponent{
   private prime;
   private user;
-  constructor(){
+  constructor(private auth:Authentication,private route: Router){
    this.prime= this.generatePrime(Math.floor(Math.random()*100))
-   this.user = localStorage.getItem("user");
+   this.user = this.auth.userInfo;
   }
   generatePrime(random){
     while(true){
@@ -31,4 +33,8 @@ export class DashboardComponent{
     }
     return value > 1;
 }
+  logOut(){
+    this.auth.logOutUser();
+    this.route.navigate(['login'])
+  }
 }

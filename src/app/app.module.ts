@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuardService } from './services/authGuard'
+import { Authentication } from './services/authentication'
 import {
   MatInputModule,
   MatCardModule,
@@ -18,27 +20,28 @@ import {
   MatListModule,
 } from '@angular/material';
 
-const routesDat=[
+const routesDat = [
   {
-      path:'login',
-      component:LoginComponent,
-     
-    },
-    {
-      path:'',
-      redirectTo:'/login',
-      pathMatch: 'full'
-    },
-    {
-      path:'dashboard',
-      component:DashboardComponent
-    }
-  
+    path: 'login',
+    component: LoginComponent,
+
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService]
+  }
+
 ]
 @NgModule({
-  imports:      [ 
-    BrowserModule, 
-    FormsModule, 
+  imports: [
+    BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     CommonModule,
     ReactiveFormsModule,
@@ -50,12 +53,13 @@ const routesDat=[
     MatSidenavModule,
     MatListModule,
     RouterModule.forRoot(routesDat)
-     ],
-  declarations: [ 
+  ],
+  declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent
-     ],
-  bootstrap:    [ AppComponent ]
+  ],
+  providers: [AuthGuardService, Authentication],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

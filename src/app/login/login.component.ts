@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Authentication} from '../services/authentication'
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,12 @@ export class LoginComponent {
   private password ="";
   private loginCount:number = 0;
   private incorrect:boolean = false;
-  constructor(private route: Router){
+  constructor(private route: Router,private auth:Authentication){
   }
 
   onsubmit(){
     
-    if(this.username === localStorage.getItem("user") && this.password === localStorage.getItem("pwd") ){
+    if(this.auth.checkAuth(this.username,this.password) ){
       this.route.navigate(["/dashboard"])
     }else{
       this.loginCount++;
