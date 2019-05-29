@@ -1,2 +1,11 @@
- login user is : {{user}} <br>
-  Prime Number : {{prime}}
+<mat-toolbar class="login-toolbar" color="primary">
+  <span>Hi {{user}}</span>  
+  <span class="fill-space"></span>
+  <a  mat-list-item type="button">
+      <mat-icon class="icon">input</mat-icon>
+      <span class="label">LogOut</span>
+    </a>
+  </mat-toolbar>
+   <mat-card>
+Prime No: {{prime}}
+   </mat-card>

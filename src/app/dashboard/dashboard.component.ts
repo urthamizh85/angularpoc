@@ -3,10 +3,8 @@ import {
 } from '@angular/core';
 @Component({
   selector: 'dashboard',
-  template: `
-   login user is : {{user}} <br>
-   Prime Number : {{prime}}
-` 
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent{
   private prime;
