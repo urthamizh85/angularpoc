@@ -1,0 +1,23 @@
+ <div class="login-container">
+   
+      <div class="login-content">
+        <mat-toolbar class="login-toolbar" color="primary">Login</mat-toolbar>
+        <mat-card>
+          <mat-error *ngIf="incorrect && loginCount!=3" >Username and Password does not match</mat-error>
+   <mat-error *ngIf="loginCount==3">Your account has been locked</mat-error>
+          <form (ngSubmit)="onsubmit()" #loginForm="ngForm" *ngIf="loginCount !=3">
+            <mat-form-field>
+              <mat-icon matPrefix>person_outline</mat-icon>
+              <input autofocus type="text" matInput placeholder="Username" name="user" required #user="ngModel" [(ngModel)]="username"  (click)="hideError()" >
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input type="password" autocomplete="false" matInput placeholder="Password" name="pwd" required #pwd="ngModel" [(ngModel)]="password"  (click)="hideError()" >
+            </mat-form-field>
+
+            <button type="submit" [disabled]="!loginForm.form.valid" mat-raised-button color="primary">Login</button>
+          </form>
+        </mat-card>
+      </div>
+    </div>
