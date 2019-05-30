@@ -5,17 +5,21 @@ export class Authentication {
 
   private username: string;
   private password: string;
-  private userInfo: string;
+  public userInfo: string;
   private isAuth: boolean = false;
 
   setAuth(user, pwd) {
-    this.username = user;
-    this.password = pwd
-    this.userInfo = user;
+    //this.username = user;
+    //this.password = pwd
+    //this.userInfo = user;
+    localStorage.setItem("username",user)
+    localStorage.setItem("password",pwd)
+    localStorage.setItem("userInfo",user)
   }
 
   checkAuth(user, pwd) {
-    if (user === this.username && pwd == this.password) {
+    if (user === localStorage.getItem("username") && pwd == localStorage.getItem("password")) {
+      this.userInfo = localStorage.getItem("userInfo");
       this.isAuth = true;
     } else {
       this.isAuth = false;
@@ -27,6 +31,7 @@ export class Authentication {
   }
   logOutUser() {
     this.userInfo = "";
+    localStorage.removeItem("userInfo");
     this.isAuth = false;
   }
 
