@@ -53,10 +53,46 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
   })
 
-  it('Login onsubmit', async(() => {
+  it('Login Invalid', async(() => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
-    spyOn(fixture.componentInstance, 'onsubmit');
+    fixture.whenStable().then(() => {
+      let username = fixture.debugElement.query(By.css('input[name="user"]'));
+      let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
+      let usrel = username.nativeElement;
+      let pwdel = pwd.nativeElement;
+      usrel.value = 'test';
+      usrel.dispatchEvent(new Event('input'));
+      pwdel.value = 'test';
+      pwdel.dispatchEvent(new Event('input'));
+      fixture.componentInstance.onsubmit()
+      expect(fixture.componentInstance.incorrect).toBe(true)
+    });
+  }));
+
+  it('Login locked', async(() => {
+    let fixture = TestBed.createComponent(LoginComponent);
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      let username = fixture.debugElement.query(By.css('input[name="user"]'));
+      let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
+      let usrel = username.nativeElement;
+      let pwdel = pwd.nativeElement;
+      usrel.value = 'test';
+      usrel.dispatchEvent(new Event('input'));
+      pwdel.value = 'test';
+      pwdel.dispatchEvent(new Event('input'));
+      fixture.componentInstance.onsubmit();
+      fixture.componentInstance.onsubmit();
+      fixture.componentInstance.onsubmit();
+      expect(fixture.componentInstance.loginCount).toBe(3)
+    });
+  }));
+
+   it('Login Succcess', async(() => {
+    let fixture = TestBed.createComponent(LoginComponent);
+    fixture.detectChanges();
+    spyOn(fixture.componentInstance.route,"navigate")
     fixture.whenStable().then(() => {
       let username = fixture.debugElement.query(By.css('input[name="user"]'));
       let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
@@ -66,8 +102,8 @@ describe('LoginComponent', () => {
       usrel.dispatchEvent(new Event('input'));
       pwdel.value = 'Salman';
       pwdel.dispatchEvent(new Event('input'));
-      fixture.debugElement.query(By.css('form')).triggerEventHandler('ngSubmit', null);
-      expect(fixture.componentInstance.onsubmit).toHaveBeenCalled();
+      fixture.componentInstance.onsubmit();
+      expect(fixture.componentInstance.incorrect).toBe(false)
     });
   }));
 
