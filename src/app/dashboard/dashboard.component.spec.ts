@@ -57,11 +57,26 @@ describe('DashboardComponent', () => {
   it('Welcome User', async(() => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
+    fixture.componentInstance.auth.checkAuth('Salman','Salman');
+    fixture.componentInstance.user = fixture.componentInstance.auth.userInfo;
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       let user = fixture.debugElement.query(By.css('#userDisp'));
-      let userel = user.nativeElement;
+      let userel = user.nativeElement;      
       expect(userel.textContent).toContain('Salman');
+    });
+  }));
+
+  it('Prime Number', async(() => {
+    let fixture = TestBed.createComponent(DashboardComponent);
+    fixture.detectChanges();
+    fixture.componentInstance.auth.checkAuth('Salman','Salman');
+    fixture.componentInstance.user = fixture.componentInstance.auth.userInfo;
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      let prime = fixture.debugElement.query(By.css('#prime'));
+       let primeel = prime.nativeElement;    
+      expect(primeel.textContent).not.toEqual('');
     });
   }));
 

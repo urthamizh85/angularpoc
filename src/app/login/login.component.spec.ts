@@ -50,7 +50,8 @@ describe('LoginComponent', () => {
       .compileComponents();
   }));
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(LoginComponent);    
+    fixture.componentInstance.auth.setAuth("Salman","Salman")
   })
 
   it('Login Invalid', async(() => {

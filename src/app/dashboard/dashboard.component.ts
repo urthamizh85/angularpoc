@@ -13,7 +13,6 @@ export class DashboardComponent{
   private user;
   constructor(private auth:Authentication,private route: Router){
    this.prime= this.generatePrime(Math.floor(Math.random()*100));
-   debugger;
    this.user = this.auth.userInfo;
   }
   generatePrime(random){
