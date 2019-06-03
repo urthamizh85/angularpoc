@@ -54,7 +54,7 @@ describe('DashboardComponent', () => {
     fixture = TestBed.createComponent(DashboardComponent);
   })
 
-  it('Welcome User', async(() => {
+  it('Display Welcome User', async(() => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
     fixture.componentInstance.auth.checkAuth('Salman','Salman');
@@ -67,7 +67,7 @@ describe('DashboardComponent', () => {
     });
   }));
 
-  it('Prime Number', async(() => {
+  it('Display Prime Number', async(() => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
     fixture.componentInstance.auth.checkAuth('Salman','Salman');

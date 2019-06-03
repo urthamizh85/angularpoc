@@ -54,7 +54,7 @@ describe('LoginComponent', () => {
     fixture.componentInstance.auth.setAuth("Salman","Salman")
   })
 
-  it('Login Invalid', async(() => {
+  it('Login invalid credential', async(() => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
     fixture.whenStable().then(() => {
@@ -71,7 +71,7 @@ describe('LoginComponent', () => {
     });
   }));
 
-  it('Login locked', async(() => {
+  it('Login locked with invalid credential', async(() => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
     fixture.whenStable().then(() => {
