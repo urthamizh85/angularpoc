@@ -8,12 +8,12 @@
           <form (ngSubmit)="onsubmit()" #loginForm="ngForm" *ngIf="loginCount !=3">
             <mat-form-field>
               <mat-icon matPrefix>person_outline</mat-icon>
-              <input autofocus type="text" matInput placeholder="Username" name="user" required #user="ngModel" [(ngModel)]="username"  (click)="hideError()" >
+              <input autofocus type="text" matInput placeholder="Username" name="userName" required #user="ngModel" [(ngModel)]="userName"  (click)="hideError()" >
             </mat-form-field>
 
             <mat-form-field>
               <mat-icon matPrefix>lock_outline</mat-icon>
-              <input type="password" autocomplete="false" matInput placeholder="Password" name="pwd" required #pwd="ngModel" [(ngModel)]="password"  (click)="hideError()" >
+              <input type="password" autocomplete="false" matInput placeholder="Password" name="password" required #pwd="ngModel" [(ngModel)]="password"  (click)="hideError()" >
             </mat-form-field>
 
             <button type="submit" [disabled]="!loginForm.form.valid" mat-raised-button color="primary">Login</button>

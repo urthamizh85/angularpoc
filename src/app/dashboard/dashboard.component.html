@@ -1,7 +1,7 @@
 <mat-toolbar class="login-toolbar" color="primary">
   <a mat-list-item>
       <mat-icon class="icon">dashboard</mat-icon>
-      <span id="userDisp" class="label">Welcome to {{user}} Dashboard</span>
+      <span id="userDisp" class="label">Welcome to {{userName}} Dashboard</span>
     </a> 
   <span class="fill-space"></span>
   <a  mat-list-item type="button" (click)="logOut()">
@@ -10,5 +10,5 @@
     </a>
   </mat-toolbar>
    <mat-card id="prime">
-Prime No: {{prime}}
+Prime No: {{primeNo}}
    </mat-card>

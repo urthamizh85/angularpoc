@@ -58,12 +58,12 @@ describe('DashboardComponent', () => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
     fixture.componentInstance.auth.checkAuth('Salman','Salman');
-    fixture.componentInstance.user = fixture.componentInstance.auth.userInfo;
+    fixture.componentInstance.userName = fixture.componentInstance.auth.userInfo;
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      let user = fixture.debugElement.query(By.css('#userDisp'));
-      let userel = user.nativeElement;      
-      expect(userel.textContent).toContain('Salman');
+      let userName = fixture.debugElement.query(By.css('#userDisp'));
+      let userNameEle = userName.nativeElement;      
+      expect(userNameEle.textContent).toContain('Salman');
     });
   }));
 
@@ -71,12 +71,12 @@ describe('DashboardComponent', () => {
     let fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
     fixture.componentInstance.auth.checkAuth('Salman','Salman');
-    fixture.componentInstance.user = fixture.componentInstance.auth.userInfo;
+    fixture.componentInstance.userName = fixture.componentInstance.auth.userInfo;
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      let prime = fixture.debugElement.query(By.css('#prime'));
-       let primeel = prime.nativeElement;    
-      expect(primeel.textContent).not.toEqual('');
+      let primeNo = fixture.debugElement.query(By.css('#prime'));
+       let primeNoEle = primeNo.nativeElement;    
+      expect(primeNoEle.textContent).not.toEqual('');
     });
   }));
 

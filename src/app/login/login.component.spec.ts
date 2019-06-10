@@ -58,14 +58,14 @@ describe('LoginComponent', () => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      let username = fixture.debugElement.query(By.css('input[name="user"]'));
-      let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
-      let usrel = username.nativeElement;
-      let pwdel = pwd.nativeElement;
-      usrel.value = 'test';
-      usrel.dispatchEvent(new Event('input'));
-      pwdel.value = 'test';
-      pwdel.dispatchEvent(new Event('input'));
+      let userName = fixture.debugElement.query(By.css('input[name="userName"]'));
+      let password = fixture.debugElement.query(By.css('input[name="password"]'));
+      let userNameEle = userName.nativeElement;
+      let passwordEle = password.nativeElement;
+      userNameEle.value = 'test';
+      userNameEle.dispatchEvent(new Event('input'));
+      passwordEle.value = 'test';
+      passwordEle.dispatchEvent(new Event('input'));
       fixture.componentInstance.onsubmit()
       expect(fixture.componentInstance.incorrect).toBe(true)
     });
@@ -75,14 +75,14 @@ describe('LoginComponent', () => {
     let fixture = TestBed.createComponent(LoginComponent);
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      let username = fixture.debugElement.query(By.css('input[name="user"]'));
-      let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
-      let usrel = username.nativeElement;
-      let pwdel = pwd.nativeElement;
-      usrel.value = 'test';
-      usrel.dispatchEvent(new Event('input'));
-      pwdel.value = 'test';
-      pwdel.dispatchEvent(new Event('input'));
+      let userName = fixture.debugElement.query(By.css('input[name="userName"]'));
+      let password = fixture.debugElement.query(By.css('input[name="password"]'));
+      let userNameEle = userName.nativeElement;
+      let passwordEle = password.nativeElement;
+      userNameEle.value = 'test';
+      userNameEle.dispatchEvent(new Event('input'));
+      passwordEle.value = 'test';
+      passwordEle.dispatchEvent(new Event('input'));
       fixture.componentInstance.onsubmit();
       fixture.componentInstance.onsubmit();
       fixture.componentInstance.onsubmit();
@@ -95,14 +95,14 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     spyOn(fixture.componentInstance.route,"navigate")
     fixture.whenStable().then(() => {
-      let username = fixture.debugElement.query(By.css('input[name="user"]'));
-      let pwd = fixture.debugElement.query(By.css('input[name="pwd"]'));
-      let usrel = username.nativeElement;
-      let pwdel = pwd.nativeElement;
-      usrel.value = 'Salman';
-      usrel.dispatchEvent(new Event('input'));
-      pwdel.value = 'Salman';
-      pwdel.dispatchEvent(new Event('input'));
+      let userName = fixture.debugElement.query(By.css('input[name="userName"]'));
+      let password = fixture.debugElement.query(By.css('input[name="password"]'));
+      let userNameEle = userName.nativeElement;
+      let passwordEle = password.nativeElement;
+      userNameEle.value = 'Salman';
+      userNameEle.dispatchEvent(new Event('input'));
+      passwordEle.value = 'Salman';
+      passwordEle.dispatchEvent(new Event('input'));
       fixture.componentInstance.onsubmit();
       expect(fixture.componentInstance.incorrect).toBe(false)
     });

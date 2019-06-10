@@ -10,7 +10,7 @@ import {Authentication} from '../services/authentication'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  private username="";
+  private userName="";
   private password ="";
   private loginCount:number = 0;
   private incorrect:boolean = false;
@@ -19,7 +19,7 @@ export class LoginComponent {
 
   onsubmit(){
     
-    if(this.auth.checkAuth(this.username,this.password) ){
+    if(this.auth.checkAuth(this.userName,this.password) ){
       this.route.navigate(["/dashboard"])
     }else{
       this.loginCount++;

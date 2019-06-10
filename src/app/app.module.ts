@@ -20,7 +20,7 @@ import {
   MatListModule,
 } from '@angular/material';
 
-const routesDat = [
+const routesData = [
   {
     path: 'login',
     component: LoginComponent,
@@ -52,7 +52,7 @@ const routesDat = [
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule.forRoot(routesDat)
+    RouterModule.forRoot(routesData)
   ],
   declarations: [
     AppComponent,

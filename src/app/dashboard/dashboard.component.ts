@@ -9,11 +9,11 @@ import {Authentication} from '../services/authentication'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent{
-  private prime;
-  private user;
+  private primeNo;
+  private userName;
   constructor(private auth:Authentication,private route: Router){
-   this.prime= this.generatePrime(Math.floor(Math.random()*100));
-   this.user = this.auth.userInfo;
+   this.primeNo= this.generatePrime(Math.floor(Math.random()*100));
+   this.userName = this.auth.userInfo;
   }
   generatePrime(random){
     while(true){
